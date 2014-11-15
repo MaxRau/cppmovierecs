@@ -1,6 +1,6 @@
 class Film {
   public:
-    Film(String description, Person* w, Person* d, Person* a, String* c, float ratings, float earnings);
+    Film(String d, Person* w, Person* d, Person* a, String* c, float ratings, float earnings);
     
     String getDescription();
     Person* getWriter();
