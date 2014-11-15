@@ -1,26 +1,48 @@
+#ifndef FILM_H
+#define	FILM_H
+#include <string>
+class Person;
+
+enum type{comedy, tradgedy};
 class Film {
+<<<<<<< HEAD
   public:
     Film(String d, Person* w, Person* d, Person* a, String* c, float ratings, float earnings);
+=======
+public:
+    Film(std::string t, Person d, Person actor, Person actress, float rating, int mpaa, int released, type g, int a );
+    std::string getTitle();
+    void setTitle(std::string name_);
+    Person getDirector();
+    void setDirector(Person);
+    Person getActor();
+    void setActor(Person actor_);
+    Person getActress();
+    void setActress(Person actress_);
+    int getRating();
+    void setRating(int);
+    int getYearReleased();
+    void setYearReleased(int);
+    int getMPAA();
+    void setMPAA(int);
+    type getGenre();
+    void setGenre(type);
+    int getAwards();
+    void setAwards(int);
+>>>>>>> 612ab0e5fad475117c646dcee8eb93b9eb7d8fb6
     
-    String getDescription();
-    Person* getWriter();
-    Person* getDirector();
-    Person* getProducer();
-    Person* getActors();
-    String getCharacters();
-    float getRating();
-    float getEarnings();
+private:
+    std::string title;
+    Person* director;
+    Person* actor;
+    Person* actress;
+    int rating;
+    int mpaa;
+    int yearReleased;
+    type genre;
+    int awards;
+};
 
-  private:
-    MAX_PEOPLE = 10;
-    String description;
-    Person writer[MAX_PEOPLE];
-    Person directors[MAX_PEOPLE];
-    Person producers[MAX_PEOPLE];
-    Person actors[MAX_PEOPLE];
-    String characters[MAX_PEOPLE];
-    float rating;
-    float earnings;
 
-  }
+#endif	/* FILM_H */
 
