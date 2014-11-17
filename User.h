@@ -1,25 +1,29 @@
 #ifndef USER_H
 #define	USER_H
-class User {
+#include <vector>
+using namespace std;
+class User{
+
 public:
-User( std::string const &uName, std::string const &pw, Film* films, Person* people);
 User( std::string const &uName, std::string const &pw);
 User();
 std::string getUserName();
-std::string getPassword();
-Film* getLikedFilms();
-Person* getLikedPeople();
-void addLikedPerson(Person p);
-void addLikedFilm(Film f);
 void setUserName(std::string uName);
+std::string getPassword();
 void setPassword(std::string pw);
-//*void genRecommendations();
-int scoreFilm();
+std::vector<Film*> getLikedFilms();
+std::vector<Person*> getLikedPeople();
+std::vector<type> getLikedGenres();
+void addLikedFilm(Film*);
+int scoreFilm(Film*);
+
 private:
 std::string username;
 std::string password;//Plaintext...
-Film* likedFilms;
-Person* likedPeople;
+std::vector<Film*> filmArray;
+std::vector<type> genreArray;
+std::vector<Person*> personArray;//Needs to be populated from the liked films array
+int nLikedGenres;
 int nLikedFilms;
 int nLikedPeople;
 };

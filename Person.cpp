@@ -5,28 +5,32 @@
 #include <string>
 #include <vector>
 using namespace std;
+
 class Person{
+    
 public:
 Person();
-Person(string name,Film contrubutedTo[], int activeSince);
-void setName(string);
-string getName();
-Film* getFilms();
-void addFilm(Film* film);
+Person(std::string name,std::vector<Film*>, int activeSince);
+void setName(std::string);
+std::string getName();
+std::vector<Film*> getFilms();
+void addFilm(Film *film);
 int getActiveSince();
 void setActiveSince(int y);
+
 private:
-string name;
-//ADT of Films. Array of some size makes sense?
-Film contributedTo[];
+std::string name;
+std::vector<Film*> contributedTo;
 int activeSince;
 };
+
 Person::Person(){
 name="";
-//contributedTo[]=NULL;
+contributedTo.clear();
+contributedTo.reserve(128);
 activeSince=0;
 };
-Person::Person(string name,Film contrubutedTo[], int activeSince) : name(name), contributedTo(contributedTo), activeSince(activeSince){
+Person::Person(string name,vector<Film*> contrubutedTo, int activeSince) : name(name), contributedTo(contributedTo), activeSince(activeSince){
 };
 //Needs to iterate over all movies associated with a person, and store the lowest value;
 void Person::setName(string n){
@@ -37,17 +41,19 @@ string Person::getName(){
     return name;
 };
 void Person::setActiveSince(int as){
-activeSince=as;
+    activeSince=as;
 };
 int Person::getActiveSince(){
-cout<<"\nActive Since: "<<activeSince;
+    cout<<"\nActive Since: "<<activeSince;
     return activeSince;
 };
-/*
-void Person::addFilm(Film* f){
-contributedTo+=f;
+
+void Person::addFilm(Film *f){
+    contributedTo.end();
+    contributedTo.push_back(f);
 };
-*/
-Film* Person::getFilms(){
-return contributedTo;
+//
+vector<Film*> Person::getFilms(){
+    return contributedTo;
 };
+
