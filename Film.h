@@ -1,26 +1,39 @@
 class Film {
-  public:
-    Film(String d, Person* w, Person* d, Person* a, String* c, float ratings, float earnings);
-    
-    String getDescription();
-    Person* getWriter();
-    Person* getDirector();
-    Person* getProducer();
-    Person* getActors();
-    String getCharacters();
-    float getRating();
-    float getEarnings();
+public:
+Film();
+Film(std::string, Person*, Person*, Person*, int, int, int, std::string, int);
+std::string getTitle();
+void setTitle(const std::string name);
+Person* getDirector();
+void setDirector(Person*);
+void setDirector(Person);
+Person* getActor();
+void setActor(Person*);
+void setActor(Person);
+Person* getActress();
+void setActress(Person*);
+void setActress(Person);
+int getRating();
+void setRating(int);
+int getYearReleased();
+void setYearReleased(int);
+int getMPAA();
+void setMPAA(int);
+std::string getGenre();
+void setGenre(std::string);
+int getAwards();
+void setAwards(int);
+Person* director;
+Person* actor;
+Person* actress;
 
-  private:
-    MAX_PEOPLE = 10;
-    String description;
-    Person writer[MAX_PEOPLE];
-    Person directors[MAX_PEOPLE];
-    Person producers[MAX_PEOPLE];
-    Person actors[MAX_PEOPLE];
-    String characters[MAX_PEOPLE];
-    float rating;
-    float earnings;
+private:
 
-  }
+std::string title;
+int rating;
+int mpaa;
+int yearReleased;
+std::string genre;
+int awards;
+};
 
